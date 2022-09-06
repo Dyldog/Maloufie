@@ -1,0 +1,692 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		117ACF2B28C6CA8F00648493 /* MaloufieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF2A28C6CA8F00648493 /* MaloufieApp.swift */; };
+		117ACF2D28C6CA8F00648493 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF2C28C6CA8F00648493 /* ContentView.swift */; };
+		117ACF2F28C6CA9500648493 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117ACF2E28C6CA9500648493 /* Assets.xcassets */; };
+		117ACF3228C6CA9500648493 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117ACF3128C6CA9500648493 /* Preview Assets.xcassets */; };
+		117ACF3C28C6CA9500648493 /* MaloufieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF3B28C6CA9500648493 /* MaloufieTests.swift */; };
+		117ACF4628C6CA9500648493 /* MaloufieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF4528C6CA9500648493 /* MaloufieUITests.swift */; };
+		117ACF4828C6CA9500648493 /* MaloufieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF4728C6CA9500648493 /* MaloufieUITestsLaunchTests.swift */; };
+		117ACF5528C6CAE800648493 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF5428C6CAE800648493 /* CameraManager.swift */; };
+		117ACF5728C6CBA200648493 /* CameraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF5628C6CBA200648493 /* CameraError.swift */; };
+		117ACF5928C6CC2600648493 /* FrameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF5828C6CC2600648493 /* FrameManager.swift */; };
+		117ACF5B28C6CC3F00648493 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF5A28C6CC3F00648493 /* ContentViewModel.swift */; };
+		117ACF5D28C6CCF500648493 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF5C28C6CCF500648493 /* ErrorView.swift */; };
+		117ACF5F28C6CD2000648493 /* CGImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF5E28C6CD2000648493 /* CGImageExtension.swift */; };
+		117ACF6228C6E04E00648493 /* UIImage+Merged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF6128C6E04E00648493 /* UIImage+Merged.swift */; };
+		117ACF6428C6E05D00648493 /* CGImage+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF6328C6E05D00648493 /* CGImage+UIImage.swift */; };
+		117ACF6628C6E26300648493 /* CameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF6528C6E26300648493 /* CameraButton.swift */; };
+		117ACF6828C6E93100648493 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF6728C6E93100648493 /* IconButton.swift */; };
+		117ACF6D28C6EBE800648493 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF6C28C6EBE800648493 /* FrameView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		117ACF3828C6CA9500648493 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 117ACF1F28C6CA8F00648493 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 117ACF2628C6CA8F00648493;
+			remoteInfo = Maloufie;
+		};
+		117ACF4228C6CA9500648493 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 117ACF1F28C6CA8F00648493 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 117ACF2628C6CA8F00648493;
+			remoteInfo = Maloufie;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		117ACF2728C6CA8F00648493 /* Maloufie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maloufie.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		117ACF2A28C6CA8F00648493 /* MaloufieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaloufieApp.swift; sourceTree = "<group>"; };
+		117ACF2C28C6CA8F00648493 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		117ACF2E28C6CA9500648493 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		117ACF3128C6CA9500648493 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		117ACF3728C6CA9500648493 /* MaloufieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaloufieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		117ACF3B28C6CA9500648493 /* MaloufieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaloufieTests.swift; sourceTree = "<group>"; };
+		117ACF4128C6CA9500648493 /* MaloufieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaloufieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		117ACF4528C6CA9500648493 /* MaloufieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaloufieUITests.swift; sourceTree = "<group>"; };
+		117ACF4728C6CA9500648493 /* MaloufieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaloufieUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		117ACF5428C6CAE800648493 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		117ACF5628C6CBA200648493 /* CameraError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraError.swift; sourceTree = "<group>"; };
+		117ACF5828C6CC2600648493 /* FrameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameManager.swift; sourceTree = "<group>"; };
+		117ACF5A28C6CC3F00648493 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		117ACF5C28C6CCF500648493 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		117ACF5E28C6CD2000648493 /* CGImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGImageExtension.swift; sourceTree = "<group>"; };
+		117ACF6128C6E04E00648493 /* UIImage+Merged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Merged.swift"; sourceTree = "<group>"; };
+		117ACF6328C6E05D00648493 /* CGImage+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+UIImage.swift"; sourceTree = "<group>"; };
+		117ACF6528C6E26300648493 /* CameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraButton.swift; sourceTree = "<group>"; };
+		117ACF6728C6E93100648493 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		117ACF6C28C6EBE800648493 /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		117ACF2428C6CA8F00648493 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		117ACF3428C6CA9500648493 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		117ACF3E28C6CA9500648493 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		117ACF1E28C6CA8F00648493 = {
+			isa = PBXGroup;
+			children = (
+				117ACF2928C6CA8F00648493 /* Maloufie */,
+				117ACF3A28C6CA9500648493 /* MaloufieTests */,
+				117ACF4428C6CA9500648493 /* MaloufieUITests */,
+				117ACF2828C6CA8F00648493 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		117ACF2828C6CA8F00648493 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				117ACF2728C6CA8F00648493 /* Maloufie.app */,
+				117ACF3728C6CA9500648493 /* MaloufieTests.xctest */,
+				117ACF4128C6CA9500648493 /* MaloufieUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		117ACF2928C6CA8F00648493 /* Maloufie */ = {
+			isa = PBXGroup;
+			children = (
+				117ACF7028C6EC1A00648493 /* Views */,
+				117ACF6B28C6EBC700648493 /* Managers */,
+				117ACF6028C6E04000648493 /* Extensions */,
+				117ACF2A28C6CA8F00648493 /* MaloufieApp.swift */,
+				117ACF2E28C6CA9500648493 /* Assets.xcassets */,
+				117ACF3028C6CA9500648493 /* Preview Content */,
+			);
+			path = Maloufie;
+			sourceTree = "<group>";
+		};
+		117ACF3028C6CA9500648493 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				117ACF3128C6CA9500648493 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		117ACF3A28C6CA9500648493 /* MaloufieTests */ = {
+			isa = PBXGroup;
+			children = (
+				117ACF3B28C6CA9500648493 /* MaloufieTests.swift */,
+			);
+			path = MaloufieTests;
+			sourceTree = "<group>";
+		};
+		117ACF4428C6CA9500648493 /* MaloufieUITests */ = {
+			isa = PBXGroup;
+			children = (
+				117ACF4528C6CA9500648493 /* MaloufieUITests.swift */,
+				117ACF4728C6CA9500648493 /* MaloufieUITestsLaunchTests.swift */,
+			);
+			path = MaloufieUITests;
+			sourceTree = "<group>";
+		};
+		117ACF6028C6E04000648493 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				117ACF6128C6E04E00648493 /* UIImage+Merged.swift */,
+				117ACF5E28C6CD2000648493 /* CGImageExtension.swift */,
+				117ACF6328C6E05D00648493 /* CGImage+UIImage.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		117ACF6928C6EBAA00648493 /* Content View */ = {
+			isa = PBXGroup;
+			children = (
+				117ACF5A28C6CC3F00648493 /* ContentViewModel.swift */,
+				117ACF2C28C6CA8F00648493 /* ContentView.swift */,
+			);
+			path = "Content View";
+			sourceTree = "<group>";
+		};
+		117ACF6A28C6EBB800648493 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				117ACF6528C6E26300648493 /* CameraButton.swift */,
+				117ACF6728C6E93100648493 /* IconButton.swift */,
+				117ACF5C28C6CCF500648493 /* ErrorView.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		117ACF6B28C6EBC700648493 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				117ACF5428C6CAE800648493 /* CameraManager.swift */,
+				117ACF5628C6CBA200648493 /* CameraError.swift */,
+				117ACF5828C6CC2600648493 /* FrameManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		117ACF6E28C6EBFB00648493 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				117ACF6928C6EBAA00648493 /* Content View */,
+				117ACF6F28C6EC0200648493 /* Frame View */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		117ACF6F28C6EC0200648493 /* Frame View */ = {
+			isa = PBXGroup;
+			children = (
+				117ACF6C28C6EBE800648493 /* FrameView.swift */,
+			);
+			path = "Frame View";
+			sourceTree = "<group>";
+		};
+		117ACF7028C6EC1A00648493 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				117ACF6E28C6EBFB00648493 /* Screens */,
+				117ACF6A28C6EBB800648493 /* Elements */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		117ACF2628C6CA8F00648493 /* Maloufie */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 117ACF4B28C6CA9500648493 /* Build configuration list for PBXNativeTarget "Maloufie" */;
+			buildPhases = (
+				117ACF2328C6CA8F00648493 /* Sources */,
+				117ACF2428C6CA8F00648493 /* Frameworks */,
+				117ACF2528C6CA8F00648493 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Maloufie;
+			productName = Maloufie;
+			productReference = 117ACF2728C6CA8F00648493 /* Maloufie.app */;
+			productType = "com.apple.product-type.application";
+		};
+		117ACF3628C6CA9500648493 /* MaloufieTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 117ACF4E28C6CA9500648493 /* Build configuration list for PBXNativeTarget "MaloufieTests" */;
+			buildPhases = (
+				117ACF3328C6CA9500648493 /* Sources */,
+				117ACF3428C6CA9500648493 /* Frameworks */,
+				117ACF3528C6CA9500648493 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				117ACF3928C6CA9500648493 /* PBXTargetDependency */,
+			);
+			name = MaloufieTests;
+			productName = MaloufieTests;
+			productReference = 117ACF3728C6CA9500648493 /* MaloufieTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		117ACF4028C6CA9500648493 /* MaloufieUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 117ACF5128C6CA9500648493 /* Build configuration list for PBXNativeTarget "MaloufieUITests" */;
+			buildPhases = (
+				117ACF3D28C6CA9500648493 /* Sources */,
+				117ACF3E28C6CA9500648493 /* Frameworks */,
+				117ACF3F28C6CA9500648493 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				117ACF4328C6CA9500648493 /* PBXTargetDependency */,
+			);
+			name = MaloufieUITests;
+			productName = MaloufieUITests;
+			productReference = 117ACF4128C6CA9500648493 /* MaloufieUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		117ACF1F28C6CA8F00648493 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					117ACF2628C6CA8F00648493 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					117ACF3628C6CA9500648493 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 117ACF2628C6CA8F00648493;
+					};
+					117ACF4028C6CA9500648493 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 117ACF2628C6CA8F00648493;
+					};
+				};
+			};
+			buildConfigurationList = 117ACF2228C6CA8F00648493 /* Build configuration list for PBXProject "Maloufie" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 117ACF1E28C6CA8F00648493;
+			productRefGroup = 117ACF2828C6CA8F00648493 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				117ACF2628C6CA8F00648493 /* Maloufie */,
+				117ACF3628C6CA9500648493 /* MaloufieTests */,
+				117ACF4028C6CA9500648493 /* MaloufieUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		117ACF2528C6CA8F00648493 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				117ACF3228C6CA9500648493 /* Preview Assets.xcassets in Resources */,
+				117ACF2F28C6CA9500648493 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		117ACF3528C6CA9500648493 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		117ACF3F28C6CA9500648493 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		117ACF2328C6CA8F00648493 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				117ACF6828C6E93100648493 /* IconButton.swift in Sources */,
+				117ACF5928C6CC2600648493 /* FrameManager.swift in Sources */,
+				117ACF6D28C6EBE800648493 /* FrameView.swift in Sources */,
+				117ACF6428C6E05D00648493 /* CGImage+UIImage.swift in Sources */,
+				117ACF6628C6E26300648493 /* CameraButton.swift in Sources */,
+				117ACF2D28C6CA8F00648493 /* ContentView.swift in Sources */,
+				117ACF5B28C6CC3F00648493 /* ContentViewModel.swift in Sources */,
+				117ACF5F28C6CD2000648493 /* CGImageExtension.swift in Sources */,
+				117ACF5528C6CAE800648493 /* CameraManager.swift in Sources */,
+				117ACF5D28C6CCF500648493 /* ErrorView.swift in Sources */,
+				117ACF2B28C6CA8F00648493 /* MaloufieApp.swift in Sources */,
+				117ACF5728C6CBA200648493 /* CameraError.swift in Sources */,
+				117ACF6228C6E04E00648493 /* UIImage+Merged.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		117ACF3328C6CA9500648493 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				117ACF3C28C6CA9500648493 /* MaloufieTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		117ACF3D28C6CA9500648493 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				117ACF4828C6CA9500648493 /* MaloufieUITestsLaunchTests.swift in Sources */,
+				117ACF4628C6CA9500648493 /* MaloufieUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		117ACF3928C6CA9500648493 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 117ACF2628C6CA8F00648493 /* Maloufie */;
+			targetProxy = 117ACF3828C6CA9500648493 /* PBXContainerItemProxy */;
+		};
+		117ACF4328C6CA9500648493 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 117ACF2628C6CA8F00648493 /* Maloufie */;
+			targetProxy = 117ACF4228C6CA9500648493 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		117ACF4928C6CA9500648493 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		117ACF4A28C6CA9500648493 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		117ACF4C28C6CA9500648493 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Maloufie/Preview Content\"";
+				DEVELOPMENT_TEAM = 6CW3378X23;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access is required to save photos";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Photo library access is required to save photos";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dylan.Maloufie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		117ACF4D28C6CA9500648493 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Maloufie/Preview Content\"";
+				DEVELOPMENT_TEAM = 6CW3378X23;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access is required to save photos";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Photo library access is required to save photos";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dylan.Maloufie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		117ACF4F28C6CA9500648493 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6CW3378X23;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dylan.MaloufieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maloufie.app/Maloufie";
+			};
+			name = Debug;
+		};
+		117ACF5028C6CA9500648493 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6CW3378X23;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dylan.MaloufieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maloufie.app/Maloufie";
+			};
+			name = Release;
+		};
+		117ACF5228C6CA9500648493 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6CW3378X23;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dylan.MaloufieUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Maloufie;
+			};
+			name = Debug;
+		};
+		117ACF5328C6CA9500648493 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6CW3378X23;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dylan.MaloufieUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Maloufie;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		117ACF2228C6CA8F00648493 /* Build configuration list for PBXProject "Maloufie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				117ACF4928C6CA9500648493 /* Debug */,
+				117ACF4A28C6CA9500648493 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		117ACF4B28C6CA9500648493 /* Build configuration list for PBXNativeTarget "Maloufie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				117ACF4C28C6CA9500648493 /* Debug */,
+				117ACF4D28C6CA9500648493 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		117ACF4E28C6CA9500648493 /* Build configuration list for PBXNativeTarget "MaloufieTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				117ACF4F28C6CA9500648493 /* Debug */,
+				117ACF5028C6CA9500648493 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		117ACF5128C6CA9500648493 /* Build configuration list for PBXNativeTarget "MaloufieUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				117ACF5228C6CA9500648493 /* Debug */,
+				117ACF5328C6CA9500648493 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 117ACF1F28C6CA8F00648493 /* Project object */;
+}
