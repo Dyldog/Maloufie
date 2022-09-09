@@ -7,24 +7,22 @@
 
 import Foundation
 import CoreImage
+import SwiftUI
 
 class ContentViewModel: ObservableObject {
     @Published private var frontFrame: CGImage?
     @Published private var backFrame: CGImage?
     
-    var flipFrames: Bool = false
+    private var layout: Layout = .horizontal
     
-    private var frames: [CGImage?] {
+    var frames: [CGImage?] {
         let frames = [frontFrame, backFrame]
-        return flipFrames ? frames.reversed() : frames
+        return layout.isFlipped ? frames.reversed() : frames
     }
     
-    var leftFrame: CGImage? { frames[0] }
-    var rightFrame: CGImage? { frames[1] }
+    var layoutAxis: Axis { layout.axis }
     
-    @Published var error: Error? {
-        didSet { print(error) }
-    }
+    @Published var error: Error?
     private let cameraManager: CameraManager = .shared
     private let frontFrameManager: FrameManager
     private let backFrameManager: FrameManager
@@ -59,8 +57,9 @@ class ContentViewModel: ObservableObject {
     }
     
     func savePhoto() {
-        guard let leftFrame = leftFrame, let rightFrame = rightFrame,
-            let merged = leftFrame.uiImage.mergedSideBySide(with: rightFrame.uiImage) else {
+        guard let leftFrame = frames[0], let rightFrame = frames[1],
+              let merged = leftFrame.uiImage.mergedSideBySide(with: rightFrame.uiImage, axis: layoutAxis)
+        else {
             return
         }
 
@@ -69,6 +68,10 @@ class ContentViewModel: ObservableObject {
     
     func openPhotos() {
         UIApplication.shared.open(URL(string:"photos-redirect://")!)
+    }
+    
+    func switchFrame() {
+        layout = layout.next
     }
 }
 
