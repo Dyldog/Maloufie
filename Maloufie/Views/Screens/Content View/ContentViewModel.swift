@@ -13,7 +13,7 @@ class ContentViewModel: ObservableObject {
     @Published private var frontFrame: CGImage?
     @Published private var backFrame: CGImage?
     
-    private var layout: Layout = .horizontal
+    @UserDefaultable(key: .layout) private var layout: Layout = .horizontal
     
     var frames: [CGImage?] {
         let frames = [frontFrame, backFrame]

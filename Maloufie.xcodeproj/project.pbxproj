@@ -25,6 +25,9 @@
 		117ACF6628C6E26300648493 /* CameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF6528C6E26300648493 /* CameraButton.swift */; };
 		117ACF6828C6E93100648493 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF6728C6E93100648493 /* IconButton.swift */; };
 		117ACF6D28C6EBE800648493 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF6C28C6EBE800648493 /* FrameView.swift */; };
+		11D9555028CB0D8D001015C4 /* UserDefaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D9554F28CB0D8D001015C4 /* UserDefaultable.swift */; };
+		11D9555228CB0DDA001015C4 /* DefaultsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D9555128CB0DDA001015C4 /* DefaultsStore.swift */; };
+		11D9555428CB0DE8001015C4 /* DefaultsHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D9555328CB0DE8001015C4 /* DefaultsHandling.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,9 @@
 		117ACF6528C6E26300648493 /* CameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraButton.swift; sourceTree = "<group>"; };
 		117ACF6728C6E93100648493 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		117ACF6C28C6EBE800648493 /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
+		11D9554F28CB0D8D001015C4 /* UserDefaultable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultable.swift; sourceTree = "<group>"; };
+		11D9555128CB0DDA001015C4 /* DefaultsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsStore.swift; sourceTree = "<group>"; };
+		11D9555328CB0DE8001015C4 /* DefaultsHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsHandling.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +160,10 @@
 		117ACF6028C6E04000648493 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				11D9555328CB0DE8001015C4 /* DefaultsHandling.swift */,
+				11D9555128CB0DDA001015C4 /* DefaultsStore.swift */,
 				117ACF6128C6E04E00648493 /* UIImage+Merged.swift */,
+				11D9554F28CB0D8D001015C4 /* UserDefaultable.swift */,
 				117ACF5E28C6CD2000648493 /* CGImageExtension.swift */,
 				117ACF6328C6E05D00648493 /* CGImage+UIImage.swift */,
 			);
@@ -346,18 +355,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11D9555228CB0DDA001015C4 /* DefaultsStore.swift in Sources */,
 				117ACF6828C6E93100648493 /* IconButton.swift in Sources */,
 				117ACF5928C6CC2600648493 /* FrameManager.swift in Sources */,
 				117ACF6D28C6EBE800648493 /* FrameView.swift in Sources */,
 				117ACF6428C6E05D00648493 /* CGImage+UIImage.swift in Sources */,
 				117ACF6628C6E26300648493 /* CameraButton.swift in Sources */,
 				117ACF2D28C6CA8F00648493 /* ContentView.swift in Sources */,
+				11D9555028CB0D8D001015C4 /* UserDefaultable.swift in Sources */,
 				117ACF5B28C6CC3F00648493 /* ContentViewModel.swift in Sources */,
 				117ACF5F28C6CD2000648493 /* CGImageExtension.swift in Sources */,
 				117ACF5528C6CAE800648493 /* CameraManager.swift in Sources */,
 				117ACF5D28C6CCF500648493 /* ErrorView.swift in Sources */,
 				117ACF2B28C6CA8F00648493 /* MaloufieApp.swift in Sources */,
 				117ACF5728C6CBA200648493 /* CameraError.swift in Sources */,
+				11D9555428CB0DE8001015C4 /* DefaultsHandling.swift in Sources */,
 				117ACF6228C6E04E00648493 /* UIImage+Merged.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,7 +532,7 @@
 				DEVELOPMENT_TEAM = 6CW3378X23;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access is required to take photos";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access is required to take split-screen Maloufie photos";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Photo library access is required to save the Maloufies you take to your photo library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -551,7 +563,7 @@
 				DEVELOPMENT_TEAM = 6CW3378X23;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access is required to take photos";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access is required to take split-screen Maloufie photos";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Photo library access is required to save the Maloufies you take to your photo library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
