@@ -22,6 +22,7 @@ struct FrameView: View {
                 width: geometry.size.width,
                 height: geometry.size.height,
                 alignment: .center)
+              .contentShape(Rectangle())
               .clipped()
           }
         } else {

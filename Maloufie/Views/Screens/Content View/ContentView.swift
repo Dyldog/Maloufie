@@ -39,7 +39,13 @@ enum Layout: Int, CaseIterable, Codable {
 }
 
 struct ContentView: View {
+    enum Frame {
+        case a
+        case b
+    }
+    
     @StateObject private var model = ContentViewModel()
+    @State private var expandedFrame: Frame?
     
     var body: some View {
         GeometryReader { geometry in
@@ -47,18 +53,30 @@ struct ContentView: View {
                 layout {
                     FrameView(image: model.frames[0])
                         .edgesIgnoringSafeArea(.all)
-//                      .frame(
-//                        width: geometry.size.width / 2,
-//                        height: geometry.size.height,
-//                        alignment: .leading
-//                      )
+                        .gesture(
+                            DragGesture(minimumDistance: 0).onChanged { _ in
+                                expandedFrame = .a
+                            }.onEnded { _ in
+                                expandedFrame = nil
+                            }
+                        )
+                        .frame(
+                            width: width(for: .a, with: geometry),
+                            height: height(for: .a, with: geometry)
+                        )
                     FrameView(image: model.frames[1])
                         .edgesIgnoringSafeArea(.all)
-//                      .frame(
-//                        width: geometry.size.width / 2,
-//                        height: geometry.size.height,
-//                        alignment: .leading
-//                      )
+                        .gesture(
+                            DragGesture(minimumDistance: 0).onChanged { _ in
+                                expandedFrame = .b
+                            }.onEnded { _ in
+                                expandedFrame = nil
+                            }
+                        )
+                        .frame(
+                            width: width(for: .b, with: geometry),
+                            height: height(for: .b, with: geometry)
+                        )
                 }
                 ErrorView(error: model.error)
                 VStack {
@@ -88,6 +106,18 @@ struct ContentView: View {
                 .padding(.bottom, 30)
             }
         }
+    }
+    
+    private func width(for frame: Frame, with geometry: GeometryProxy) -> CGFloat? {
+        guard let expandedFrame = expandedFrame else { return nil }
+        guard expandedFrame == frame else { return 0 }
+        return geometry.size.width
+    }
+    
+    private func height(for frame: Frame, with geometry: GeometryProxy) -> CGFloat? {
+        guard let expandedFrame = expandedFrame else { return nil }
+        guard expandedFrame == frame else { return 0 }
+        return geometry.size.height
     }
     
     private func layout<Content: View>(@ViewBuilder content: () -> Content) -> AnyView {
