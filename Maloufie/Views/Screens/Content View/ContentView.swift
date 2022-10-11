@@ -51,36 +51,49 @@ struct ContentView: View {
         GeometryReader { geometry in
             ZStack {
                 layout {
-                    FrameView(image: model.frames[0])
-                        .edgesIgnoringSafeArea(.all)
-                        .gesture(
-                            DragGesture(minimumDistance: 0).onChanged { _ in
-                                expandedFrame = .a
-                            }.onEnded { _ in
-                                expandedFrame = nil
-                            }
-                        )
-                        .frame(
-                            width: width(for: .a, with: geometry),
-                            height: height(for: .a, with: geometry)
-                        )
-                    FrameView(image: model.frames[1])
-                        .edgesIgnoringSafeArea(.all)
-                        .gesture(
-                            DragGesture(minimumDistance: 0).onChanged { _ in
-                                expandedFrame = .b
-                            }.onEnded { _ in
-                                expandedFrame = nil
-                            }
-                        )
-                        .frame(
-                            width: width(for: .b, with: geometry),
-                            height: height(for: .b, with: geometry)
-                        )
+                    if let image = model.frames[0] {
+                        FrameView(image: image)
+                            .edgesIgnoringSafeArea(.all)
+                            .gesture(
+                                DragGesture(minimumDistance: 0).onChanged { _ in
+                                    expandedFrame = .a
+                                }.onEnded { _ in
+                                    expandedFrame = nil
+                                }
+                            )
+                            .frame(
+                                width: width(for: .a, with: geometry),
+                                height: height(for: .a, with: geometry)
+                            )
+                    }
+                    
+                    if let image = model.frames[1] {
+                        FrameView(image: image)
+                            .edgesIgnoringSafeArea(.all)
+                            .gesture(
+                                DragGesture(minimumDistance: 0).onChanged { _ in
+                                    expandedFrame = .b
+                                }.onEnded { _ in
+                                    expandedFrame = nil
+                                }
+                            )
+                            .frame(
+                                width: width(for: .b, with: geometry),
+                                height: height(for: .b, with: geometry)
+                            )
+                    }
                 }
                 ErrorView(error: model.error)
                 VStack {
                     Spacer()
+                    
+                    if let error = errorMessage {
+                        Text(error)
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                            .font(.footnote)
+                            .padding()
+                    }
                     ZStack {
                         HStack {
                             IconButton(imageName: "photo.on.rectangle") {
@@ -106,6 +119,19 @@ struct ContentView: View {
                 .padding(.bottom, 30)
             }
         }
+        .background(Color.black)
+    }
+    
+    var errorMessage: String? {
+        let camera: String
+        
+        switch (model.frames[0], model.frames[1]) {
+        case (.some, .some): return nil
+        case (.some, nil), (nil, .some): camera = "one of the cameras has"
+        case (nil, nil): camera = "both of the cameras have"
+        }
+        
+        return "Unfortunately, it seems that \(camera) crashed. Contact the developer and request a very large cookie!"
     }
     
     private func width(for frame: Frame, with geometry: GeometryProxy) -> CGFloat? {

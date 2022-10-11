@@ -36,10 +36,6 @@ class ContentViewModel: ObservableObject {
     }
     // 3
     func setupSubscriptions() {
-        cameraManager.$error //.merge(with: backCameraManager.$error)
-          .receive(on: RunLoop.main)
-          .map { $0 }
-          .assign(to: &$error)
         
         frontFrameManager.$current
             .receive(on: RunLoop.main)

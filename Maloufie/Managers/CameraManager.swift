@@ -23,8 +23,16 @@ class CameraManager: ObservableObject {
     static let shared: CameraManager = .init()
     
     private let sessionQueue = DispatchQueue(label: "com.dylan.SessionQ")
-    var frontVideoDataOutput = AVCaptureVideoDataOutput()
-    var backVideoDataOutput = AVCaptureVideoDataOutput()
+    var frontVideoDataOutput: AVCaptureVideoDataOutput?
+    var backVideoDataOutput: AVCaptureVideoDataOutput?
+    
+    var hasSetupFrontCamera: Bool {
+        frontVideoDataOutput != nil
+    }
+    
+    var hasSetupBackCamera: Bool {
+        backVideoDataOutput != nil
+    }
     
     private var status = Status.unconfigured
     
@@ -86,15 +94,15 @@ class CameraManager: ObservableObject {
             session.commitConfiguration()
         }
         
-        addCamera(.front, output: frontVideoDataOutput)
-        addCamera(.back, output: backVideoDataOutput)
+        frontVideoDataOutput = addCamera(.front)
+        backVideoDataOutput = addCamera(.back)
         status = .configured
     }
     
-    private func addCamera(_ position: AVCaptureDevice.Position, output: AVCaptureVideoDataOutput) {
+    private func addCamera(_ position: AVCaptureDevice.Position) -> AVCaptureVideoDataOutput? {
         guard let camera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: position) else {
             print("no camera")
-            return // false
+            return nil
         }
         
         let deviceInput: AVCaptureDeviceInput
@@ -103,19 +111,22 @@ class CameraManager: ObservableObject {
             session.addInputWithNoConnections(deviceInput)
         } catch {
             print("no front input: \(error)")
-            return // false
+            return nil
         }
         
         guard let videoPort = deviceInput.ports(for: .video, sourceDeviceType: camera.deviceType, sourceDevicePosition: camera.position).first else {
             print("no front camera device input's video port")
-            return // false
+            return nil
         }
+        
+        let output = AVCaptureVideoDataOutput()
         
         // append front video output to dual video session
         guard session.canAddOutput(output) else {
             print("no camera video output")
-            return // false
+            return nil
         }
+        
         session.addOutputWithNoConnections(output)
         output.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_32BGRA)]
         
@@ -123,11 +134,13 @@ class CameraManager: ObservableObject {
         let outputConnection = AVCaptureConnection(inputPorts: [videoPort], output: output)
         guard session.canAddConnection(outputConnection) else {
             print("no connection to the video output")
-            return // false
+            return nil
         }
         session.addConnection(outputConnection)
         outputConnection.videoOrientation = .portrait
         outputConnection.isVideoMirrored = true
+        
+        return output
     }
     
     func set(
@@ -138,8 +151,8 @@ class CameraManager: ObservableObject {
     ) {
         sessionQueue.async {
             switch position {
-            case .front: self.frontVideoDataOutput.setSampleBufferDelegate(delegate, queue: queue)
-            case .back: self.backVideoDataOutput.setSampleBufferDelegate(delegate, queue: queue)
+            case .front: self.frontVideoDataOutput?.setSampleBufferDelegate(delegate, queue: queue)
+            case .back: self.backVideoDataOutput?.setSampleBufferDelegate(delegate, queue: queue)
             default: break
             }
         }
