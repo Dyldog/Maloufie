@@ -44,6 +44,7 @@ struct ContentView: View {
         case b
     }
     
+    @Environment(\.scenePhase) var scenePhase
     @StateObject private var model = ContentViewModel()
     @State private var expandedFrame: Frame?
     
@@ -120,6 +121,9 @@ struct ContentView: View {
             }
         }
         .background(Color.black)
+        .onChange(of: scenePhase) { newPhase in
+            expandedFrame = nil
+        }
     }
     
     var errorMessage: String? {
