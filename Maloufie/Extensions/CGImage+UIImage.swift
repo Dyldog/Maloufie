@@ -9,5 +9,7 @@ import Foundation
 import UIKit
 
 extension CGImage {
-    var uiImage: UIImage { .init(cgImage: self) }
+    func uiImage(mirror: Bool = false) -> UIImage {
+        .init(cgImage: self, scale: 1, orientation: mirror ? .upMirrored : .up)
+    }
 }

@@ -51,7 +51,7 @@ struct ContentView: View {
         GeometryReader { geometry in
             ZStack {
                 layout {
-                    if let image = model.frames[0] {
+                    if let image = model.frames[0].unwrapped {
                         FrameView(image: image)
                             .edgesIgnoringSafeArea(.all)
                             .gesture(
@@ -67,7 +67,7 @@ struct ContentView: View {
                             )
                     }
                     
-                    if let image = model.frames[1] {
+                    if let image = model.frames[1].unwrapped {
                         FrameView(image: image)
                             .edgesIgnoringSafeArea(.all)
                             .gesture(
@@ -125,7 +125,7 @@ struct ContentView: View {
     var errorMessage: String? {
         let camera: String
         
-        switch (model.frames[0], model.frames[1]) {
+        switch (model.frames[0].unwrapped, model.frames[1].unwrapped) {
         case (.some, .some): return nil
         case (.some, nil), (nil, .some): camera = "one of the cameras has"
         case (nil, nil): camera = "both of the cameras have"

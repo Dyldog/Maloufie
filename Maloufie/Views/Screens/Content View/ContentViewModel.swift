@@ -9,14 +9,33 @@ import Foundation
 import CoreImage
 import SwiftUI
 
+struct FlippableImage {
+    let flipped: Bool
+    let image: CGImage?
+    
+    init(_ flipped: Bool, _ image: CGImage?) {
+        self.flipped = flipped
+        self.image = image
+    }
+    
+    var unwrapped: (flipped: Bool, image: CGImage)? {
+        guard let image = image else { return nil }
+        return (flipped, image)
+    }
+    
+    var uiImage: UIImage? {
+        guard let image = image else { return nil }
+        return image.uiImage(mirror: flipped)
+    }
+}
 class ContentViewModel: ObservableObject {
     @Published private var frontFrame: CGImage?
     @Published private var backFrame: CGImage?
     
     @UserDefaultable(key: .layout) private var layout: Layout = .horizontal
     
-    var frames: [CGImage?] {
-        let frames = [frontFrame, backFrame]
+    var frames: [FlippableImage] {
+        let frames: [FlippableImage] = [.init(true, frontFrame), .init(false, backFrame)]
         return layout.isFlipped ? frames.reversed() : frames
     }
     
@@ -53,8 +72,8 @@ class ContentViewModel: ObservableObject {
     }
     
     func savePhoto() {
-        guard let leftFrame = frames[0], let rightFrame = frames[1],
-              let merged = leftFrame.uiImage.mergedSideBySide(with: rightFrame.uiImage, axis: layoutAxis)
+        guard let leftImage = frames[0].uiImage, let rightImage = frames[1].uiImage,
+              let merged = leftImage.mergedSideBySide(with: rightImage, axis: layoutAxis)
         else {
             return
         }
