@@ -126,7 +126,21 @@ struct ContentView: View {
         }
     }
     
+    func message(for error: CameraError) -> String {
+        switch error {
+        case .multiCamNotSupported:
+            return "Unfortunately, multi-cam functionality is not supported on your device. We don't want to tell you to upgrade your phone if you're otherwise happy with it, but you unfortunately won't be able to use Maloufie on this one. Sorry :("
+        case .cameraUnavailable, .cannotAddInput, .cannotAddOutput, .createCaptureInput:
+            return "Unfortunately, we can't access the camera. We're not exactly sure why, but it can't be good!"
+        case .deniedAuthorization, .restrictedAuthorization, .unknownAuthorization:
+            return "You have denied access to the camera for this app. Not much a camera app can do without that, eh? Enable camera access and maybe we can talk."
+        }
+    }
+    
     var errorMessage: String? {
+        if let error = model.error {
+            return message(for: error)
+        }
         let camera: String
         
         switch (model.frames[0].unwrapped, model.frames[1].unwrapped) {
