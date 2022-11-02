@@ -8,6 +8,7 @@
 import Foundation
 import CoreImage
 import SwiftUI
+import Combine
 
 struct FlippableImage {
     let flipped: Bool
@@ -29,6 +30,7 @@ struct FlippableImage {
     }
 }
 class ContentViewModel: ObservableObject {
+    private var cancellables: Set<AnyCancellable> = .init()
     @Published private var frontFrame: CGImage?
     @Published private var backFrame: CGImage?
     
@@ -41,16 +43,22 @@ class ContentViewModel: ObservableObject {
     
     var layoutAxis: Axis { layout.axis }
     
-    @Published var error: Error?
+    @Published var error: CameraError?
     private let cameraManager: CameraManager = .shared
     private let frontFrameManager: FrameManager
-    private let backFrameManager: FrameManager
+    private let backFrameManager: FrameManager?
     
     let imageSaver: ImageSaver = .init()
     
     init() {
         frontFrameManager = FrameManager(position: .front, label: "com.dylan.front")
-        backFrameManager = FrameManager(position: .back, label: "com.dylan.back")
+        
+        if CameraManager.isMulticamSupported {
+            backFrameManager = FrameManager(position: .back, label: "com.dylan.back")
+        } else {
+            backFrameManager = nil
+        }
+        
         setupSubscriptions()
     }
     // 3
@@ -63,12 +71,19 @@ class ContentViewModel: ObservableObject {
             }
             .assign(to: &$frontFrame)
         
-        backFrameManager.$current
+        backFrameManager?.$current
             .receive(on: RunLoop.main)
             .compactMap { buffer in
                 return CGImage.create(from: buffer)
             }
             .assign(to: &$backFrame)
+        
+        cameraManager.$error
+            .receive(on: RunLoop.main)
+            .sink { [weak self] in
+                self?.error = $0
+            }
+            .store(in: &cancellables)
     }
     
     func savePhoto() {
