@@ -54,6 +54,13 @@ class CameraManager: ObservableObject {
             self.configureSession()
             self.session.startRunning()
         }
+        
+        NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification).sink { [weak self] _ in
+            self?.frontCameraVideoDataOutputConnection?.videoOrientation = UIDevice.current.orientation.flipped.cameraOrientation
+            self?.backCameraVideoDataOutputConnection?.videoOrientation = UIDevice.current.orientation.flipped.cameraOrientation
+        }
+        .store(in: &cancellables)
+        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
     }
     
     private func set(error: CameraError?) {
@@ -519,6 +526,26 @@ class CameraManager: ObservableObject {
             }
         } else if pressureLevel == .shutdown {
             print("Session stopped running due to system pressure level.")
+        }
+    }
+}
+
+extension UIDeviceOrientation {
+    var flipped: UIDeviceOrientation {
+        switch self {
+        case .landscapeRight: return .landscapeLeft
+        case .landscapeLeft: return .landscapeRight
+        default: return .portrait
+        }
+    }
+        
+    var cameraOrientation: AVCaptureVideoOrientation {
+        switch self {
+        case .portrait: return .portrait
+        case .portraitUpsideDown: return .portraitUpsideDown
+        case .landscapeLeft: return .landscapeLeft
+        case .landscapeRight: return .landscapeRight
+        default: return .portrait
         }
     }
 }
