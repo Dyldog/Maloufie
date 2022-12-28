@@ -76,7 +76,7 @@ class ContentViewModel: ObservableObject {
             .folding(options: .diacriticInsensitive, locale: .current)
             .replacingOccurrences(of: " ", with: "")
             .lowercased()
-        let names = ["Aurélien", "Bence", "Audrey", "Naureen", "Swati", "Jess", "Harry", "Harsh", "Sam", "Sim"]
+        let names = ["Aurélien", "Bence", "Audrey", "Naureen", "Swati", "Jess", "Harry", "Harsh", "Sam", "Sim", "Ameera"]
         
         for name in names {
             let sanitised = name
