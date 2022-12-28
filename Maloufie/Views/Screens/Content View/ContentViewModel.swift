@@ -82,7 +82,7 @@ class ContentViewModel: ObservableObject {
             let sanitised = name
                 .folding(options: .diacriticInsensitive, locale: .current)
                 .lowercased()
-            if deviceName.contains(sanitised) {
+            if deviceName.hasPrefix(sanitised) {
                 return name
             }
         }

@@ -47,6 +47,7 @@ struct ContentView: View {
     @Environment(\.scenePhase) var scenePhase
     @StateObject private var model = ContentViewModel()
     @State private var expandedFrame: Frame?
+    @State private var showFlash: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -111,6 +112,10 @@ struct ContentView: View {
                         .padding(.horizontal, 20)
                         CameraButton(enabled: self.model.canTakeImage) {
                             self.model.savePhoto()
+                            
+                            withAnimation {
+                                showFlash = true
+                            }
                         }
                         .aspectRatio(1, contentMode: .fit)
                         .frame(width: 80, alignment: .center)
@@ -129,6 +134,17 @@ struct ContentView: View {
                         .padding()
                     Spacer()
                 }
+                
+                Rectangle()
+                    .foregroundColor(.white)
+                    .opacity(showFlash ? 1 : 0)
+                    .animation(
+                        .easeIn(duration: 0.1)
+                            .repeatCount(1, autoreverses: true)
+                            .reverse(on: $showFlash, delay: 0.7),
+                        value: showFlash
+                    )
+                    .edgesIgnoringSafeArea(.all)
             }
         }
         .background(Color.black)
@@ -186,5 +202,14 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+extension Animation {
+    func reverse(on: Binding<Bool>, delay: Double) -> Self {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            on.wrappedValue = false /// Switch off after `delay` time
+        }
+        return self
     }
 }
