@@ -9,12 +9,12 @@ import SwiftUI
 
 struct FrameView: View {
     
-    var image: (flipped: Bool, image: CGImage)
+    var image: FlippableImage
     private let label = Text("Camera feed")
     
     var body: some View {
         GeometryReader { geometry in
-        Image(image.image, scale: 1.0, orientation: image.flipped ? .upMirrored : .up, label: label)
+            Image(image.image, scale: 1.0, orientation: image.orientation, label: label)
             .resizable()
             .scaledToFill()
             .frame(

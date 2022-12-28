@@ -12,20 +12,35 @@ import Combine
 
 struct FlippableImage {
     let flipped: Bool
-    let image: CGImage?
+    let image: CGImage
     
-    init(_ flipped: Bool, _ image: CGImage?) {
+    var cgOrientation: CGImagePropertyOrientation {
+        flipped ? .upMirrored : .up
+    }
+    
+    var orientation: Image.Orientation {
+        switch cgOrientation {
+        case .up: return .up
+        case .upMirrored: return .upMirrored
+        case .down: return .down
+        case .downMirrored: return .downMirrored
+        case .leftMirrored: return .leftMirrored
+        case .right: return .right
+        case .rightMirrored: return .rightMirrored
+        case .left: return .left
+        }
+    }
+    
+    init(_ flipped: Bool, _ image: CGImage) {
         self.flipped = flipped
         self.image = image
     }
     
     var unwrapped: (flipped: Bool, image: CGImage)? {
-        guard let image = image else { return nil }
         return (flipped, image)
     }
     
     var uiImage: UIImage? {
-        guard let image = image else { return nil }
         return image.uiImage(mirror: flipped)
     }
 }
@@ -36,8 +51,10 @@ class ContentViewModel: ObservableObject {
     
     @UserDefaultable(key: .layout) private var layout: Layout = .horizontal
     
-    var frames: [FlippableImage] {
-        let frames: [FlippableImage] = [.init(true, frontFrame), .init(false, backFrame)]
+    var frontImage: FlippableImage? { frontFrame.map { FlippableImage(true, $0) } }
+    var backImage: FlippableImage? { backFrame.map { FlippableImage(false, $0) } }
+    var frames: [FlippableImage?] {
+        let frames: [FlippableImage?] = [frontImage, backImage]
         return layout.isFlipped ? frames.reversed() : frames
     }
     
@@ -46,9 +63,46 @@ class ContentViewModel: ObservableObject {
     @Published var error: CameraError?
     private let cameraManager: CameraManager = .shared
     private let frontFrameManager: FrameManager
+    @Published private var frontHasFace: Bool = false
+    private var frontFaceManger: FaceManager?
     private let backFrameManager: FrameManager?
+    @Published private var backHasFace: Bool = false
+    private var backFaceManger: FaceManager?
     
     let imageSaver: ImageSaver = .init()
+    
+    private var matchedName: String? = {
+        let deviceName = UIDevice.current.name
+            .folding(options: .diacriticInsensitive, locale: .current)
+            .replacingOccurrences(of: " ", with: "")
+            .lowercased()
+        let names = ["Aurélien", "Bence", "Audrey", "Naureen", "Swati", "Jess", "Harry", "Harsh", "Sam", "Sim"]
+        
+        for name in names {
+            let sanitised = name
+                .folding(options: .diacriticInsensitive, locale: .current)
+                .lowercased()
+            if deviceName.contains(sanitised) {
+                return name
+            }
+        }
+        
+        return nil
+        
+    }()
+    
+    var creepyMessage: String {
+        guard canTakeImage == false, let matchedName = matchedName else { return "" }
+        return "Sorry, \(matchedName), your Malouf score is too low"
+    }
+    
+    var canTakeImage: Bool {
+        if matchedName != nil {
+            return frontHasFace && backHasFace
+        } else {
+            return true
+        }
+    }
     
     init() {
         frontFrameManager = FrameManager(position: .front, label: "com.dylan.front")
@@ -57,6 +111,11 @@ class ContentViewModel: ObservableObject {
             backFrameManager = FrameManager(position: .back, label: "com.dylan.back")
         } else {
             backFrameManager = nil
+        }
+        
+        if matchedName != nil {
+            frontFaceManger = .init()
+            backFaceManger = .init()
         }
         
         setupSubscriptions()
@@ -69,14 +128,28 @@ class ContentViewModel: ObservableObject {
             .compactMap { buffer in
                 return CGImage.create(from: buffer)
             }
-            .assign(to: &$frontFrame)
+            .sink { [weak self] in
+                self?.frontFrame = $0
+                self?.frontFaceManger?.checkForFace($0) { hasFace in
+                    self?.frontHasFace = hasFace
+                    print("FRONT: \(hasFace ? "FACE" : "NO FACE")")
+                }
+            }
+            .store(in: &cancellables)
         
         backFrameManager?.$current
             .receive(on: RunLoop.main)
             .compactMap { buffer in
                 return CGImage.create(from: buffer)
             }
-            .assign(to: &$backFrame)
+            .sink { [weak self] in
+                self?.backFrame = $0
+                self?.backFaceManger?.checkForFace($0) { hasFace in
+                    self?.backHasFace = hasFace
+                    print("BACK: \(hasFace ? "FACE" : "NO FACE")")
+                }
+            }
+            .store(in: &cancellables)
         
         cameraManager.$error
             .receive(on: RunLoop.main)
@@ -87,7 +160,7 @@ class ContentViewModel: ObservableObject {
     }
     
     func savePhoto() {
-        guard let leftImage = frames[0].uiImage, let rightImage = frames[1].uiImage,
+        guard let leftImage = frames[0]?.uiImage, let rightImage = frames[1]?.uiImage,
               let merged = leftImage.mergedSideBySide(with: rightImage, axis: layoutAxis)
         else {
             return

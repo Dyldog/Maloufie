@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		114708FA295C133900EC91EA /* FaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114708F9295C133900EC91EA /* FaceManager.swift */; };
 		117ACF2B28C6CA8F00648493 /* MaloufieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF2A28C6CA8F00648493 /* MaloufieApp.swift */; };
 		117ACF2D28C6CA8F00648493 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117ACF2C28C6CA8F00648493 /* ContentView.swift */; };
 		117ACF2F28C6CA9500648493 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117ACF2E28C6CA9500648493 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		114708F9295C133900EC91EA /* FaceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceManager.swift; sourceTree = "<group>"; };
 		117ACF2728C6CA8F00648493 /* Maloufie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maloufie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		117ACF2A28C6CA8F00648493 /* MaloufieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaloufieApp.swift; sourceTree = "<group>"; };
 		117ACF2C28C6CA8F00648493 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				117ACF5428C6CAE800648493 /* CameraManager.swift */,
 				117ACF5628C6CBA200648493 /* CameraError.swift */,
 				117ACF5828C6CC2600648493 /* FrameManager.swift */,
+				114708F9295C133900EC91EA /* FaceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				117ACF5928C6CC2600648493 /* FrameManager.swift in Sources */,
 				117ACF6D28C6EBE800648493 /* FrameView.swift in Sources */,
 				117ACF6428C6E05D00648493 /* CGImage+UIImage.swift in Sources */,
+				114708FA295C133900EC91EA /* FaceManager.swift in Sources */,
 				117ACF6628C6E26300648493 /* CameraButton.swift in Sources */,
 				117ACF2D28C6CA8F00648493 /* ContentView.swift in Sources */,
 				11D9555028CB0D8D001015C4 /* UserDefaultable.swift in Sources */,
@@ -548,7 +552,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dylan.Maloufie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -580,7 +584,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dylan.Maloufie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

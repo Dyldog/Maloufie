@@ -52,7 +52,7 @@ struct ContentView: View {
         GeometryReader { geometry in
             ZStack {
                 layout {
-                    if let image = model.frames[0].unwrapped {
+                    if let image = model.frames[0] {
                         FrameView(image: image)
                             .edgesIgnoringSafeArea(.all)
                             .gesture(
@@ -68,7 +68,7 @@ struct ContentView: View {
                             )
                     }
                     
-                    if let image = model.frames[1].unwrapped {
+                    if let image = model.frames[1] {
                         FrameView(image: image)
                             .edgesIgnoringSafeArea(.all)
                             .gesture(
@@ -109,7 +109,7 @@ struct ContentView: View {
 
                         }
                         .padding(.horizontal, 20)
-                        CameraButton {
+                        CameraButton(enabled: self.model.canTakeImage) {
                             self.model.savePhoto()
                         }
                         .aspectRatio(1, contentMode: .fit)
@@ -118,6 +118,17 @@ struct ContentView: View {
                     
                 }
                 .padding(.bottom, 30)
+                
+                VStack {
+                    Spacer()
+                    Text(model.creepyMessage)
+                        .foregroundColor(.white)
+                        .font(.largeTitle)
+                        .fontWeight(.semibold)
+                        .multilineTextAlignment(.center)
+                        .padding()
+                    Spacer()
+                }
             }
         }
         .background(Color.black)
@@ -143,7 +154,7 @@ struct ContentView: View {
         }
         let camera: String
         
-        switch (model.frames[0].unwrapped, model.frames[1].unwrapped) {
+        switch (model.frames[0], model.frames[1]) {
         case (.some, .some): return nil
         case (.some, nil), (nil, .some): camera = "one of the cameras has"
         case (nil, nil): camera = "both of the cameras have"
